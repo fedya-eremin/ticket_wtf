@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.urls import router
+from rest_framework.routers import DefaultRouter
+from api.views import TicketViewSet
+
+router = DefaultRouter()
+router.register(r'tickets', TicketViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
